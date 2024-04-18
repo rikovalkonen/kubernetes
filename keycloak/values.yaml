@@ -1,0 +1,37 @@
+global:
+  #storageClass: "cstor-csi-disk"
+auth:
+  adminUser: "admin"
+  #adminPassword: "valko12"
+service:
+  type: ClusterIP
+proxy: edge
+
+extraEnvVars:
+  - name: PROXY_ADDRESS_FORWARDING
+    value: "true"
+  - name: KC_CACHE_STACK
+    value: kubernetes
+  - name: KC_HOSTNAME_URL
+    value: "https://{DOMAIN_HERE}"
+  - name: KC_HOSTNAME_ADMIN_URL
+    value: "https://{DOMAIN_HERE}"
+  - name: KC_HOSTNAME_STRICT
+    value: "true"
+  - name: KC_HOSTNAME_STRICT_HTTPS
+    value: "true"
+
+persistence:
+  enabled: true
+  size: 10Gi
+replicaCount: 2
+
+production: true
+
+resources:
+  limits:
+    cpu: "2"
+    memory: "2Gi"
+  requests:
+    cpu: "1"
+    memory: "1Gi"
