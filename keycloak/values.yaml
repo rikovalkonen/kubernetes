@@ -2,7 +2,6 @@ global:
   #storageClass: "cstor-csi-disk"
 auth:
   adminUser: "admin"
-  #adminPassword: "valko12"
 service:
   type: ClusterIP
 proxy: edge
